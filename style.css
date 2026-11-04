@@ -1,0 +1,509 @@
+:root {
+  --black: #09070a;
+  --velvet: #171018;
+  --gold: #b99a61;
+  --bright-gold: #dfc18a;
+  --wine: #681329;
+  --parchment: #ead9b5;
+  --ink: #38271f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 35px 16px;
+  display: grid;
+  place-items: center;
+  color: #e8d8bb;
+  background:
+    radial-gradient(ellipse at 50% 40%, #30202e 0%, transparent 48%),
+    linear-gradient(135deg, #080609, #171018 55%, #080609);
+  font-family: Georgia, serif;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.library {
+  width: min(100%, 1000px);
+  margin: auto;
+}
+
+/* CLOSED VELVET COVER */
+
+.cover-screen {
+  text-align: center;
+}
+
+.velvet-book {
+  width: min(100%, 520px);
+  min-height: 690px;
+  margin: auto;
+  padding: 12px;
+  position: relative;
+  background:
+    linear-gradient(90deg, #370b19, #130d14 5%, #21101e 50%, #100a12 95%, #460d20);
+  box-shadow:
+    12px 18px 35px #000,
+    inset 3px 0 7px #a24a58,
+    inset -4px 0 8px #000;
+  border: 1px solid #815d42;
+}
+
+.cover-inner {
+  min-height: 666px;
+  padding: 48px 25px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--gold);
+  background:
+    radial-gradient(ellipse at center, rgba(105, 20, 48, .22), transparent 65%),
+    repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(255,255,255,.008) 4px),
+    #151018;
+}
+
+.cover-inner::before,
+.cover-inner::after {
+  content: "❧";
+  position: absolute;
+  color: var(--gold);
+  font-size: 42px;
+  opacity: .8;
+}
+
+.cover-inner::before {
+  top: 12px;
+  left: 15px;
+}
+
+.cover-inner::after {
+  bottom: 12px;
+  right: 15px;
+  transform: rotate(180deg);
+}
+
+.cover-ornament {
+  color: var(--gold);
+  letter-spacing: 10px;
+  font-size: 22px;
+}
+
+.cover-label {
+  color: var(--bright-gold);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-align: center;
+}
+
+.cover-emblem {
+  width: 170px;
+  filter: drop-shadow(0 0 12px rgba(185, 154, 97, .2));
+}
+
+.cover-emblem svg {
+  width: 100%;
+}
+
+.cover-title {
+  margin: 0;
+  color: #dfc28d;
+  font-size: clamp(48px, 10vw, 76px);
+  font-weight: normal;
+  line-height: .95;
+  text-align: center;
+  text-shadow: 0 3px 12px #000;
+}
+
+.cover-title span {
+  color: #9e3048;
+  font-style: italic;
+}
+
+.cover-divider {
+  color: var(--gold);
+  font-size: 17px;
+  letter-spacing: 2px;
+}
+
+.cover-description {
+  color: #c4ac9a;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.open-book,
+#begin-story {
+  padding: 13px 30px;
+  color: var(--bright-gold);
+  background: #29111d;
+  border: 1px solid var(--gold);
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.open-book:hover,
+#begin-story:hover {
+  background: #64172e;
+  box-shadow: 0 0 22px rgba(185,154,97,.2);
+}
+
+.cover-caption {
+  margin-top: 25px;
+  color: #917b78;
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+/* OPEN BOOK */
+
+.book-screen {
+  width: 100%;
+  perspective: 1800px;
+}
+
+.book-object {
+  max-width: 900px;
+  margin: auto;
+  padding: 10px;
+  background: linear-gradient(90deg, #4d1725, #160e13 50%, #4d1725);
+  box-shadow: 0 20px 65px #000;
+  border: 1px solid #956b43;
+}
+
+.book-spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 650px;
+  background: #b88e5d;
+  box-shadow: inset 0 0 18px #54331e;
+}
+
+.left-page,
+.right-page {
+  min-width: 0;
+  position: relative;
+  padding: 35px 25px;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at center, #f3e7ca, transparent 85%),
+    #e6d3af;
+  border: 1px solid #c5a779;
+  overflow: hidden;
+}
+
+.left-page {
+  box-shadow: inset -8px 0 15px rgba(66, 37, 20, .14);
+}
+
+.right-page {
+  box-shadow: inset 8px 0 15px rgba(66, 37, 20, .14);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-page::before,
+.right-page::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid #ae8b52;
+  pointer-events: none;
+}
+
+.shoe-art {
+  width: 100%;
+  max-width: 250px;
+  margin: 60px auto 0;
+}
+
+.shoe-art svg {
+  width: 100%;
+  filter: drop-shadow(0 9px 5px rgba(60, 20, 25, .2));
+}
+
+.illustration-caption {
+  margin-top: 10px;
+  text-align: center;
+  color: #8a632f;
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+.left-page-text {
+  margin-top: 55px;
+  padding: 0 12px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.page-corner {
+  position: absolute;
+  right: 20px;
+  bottom: 12px;
+  color: #9d7847;
+  font-size: 25px;
+}
+
+/* ENCHANTED FOREST FRAME */
+
+.celestial-frame {
+  width: min(100%, 320px);
+  position: relative;
+  padding: 12px;
+}
+
+.forest-art {
+  display: block;
+  width: 100%;
+  border: 1px solid #b69a65;
+  box-shadow: 0 8px 25px rgba(30, 20, 20, .3);
+}
+
+.gold-frame {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #ad884e;
+  border-radius: 48% 48% 4px 4px;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 5px rgba(173, 136, 78, .2),
+    0 0 0 4px rgba(173, 136, 78, .18);
+}
+
+.frame-star,
+.frame-sun {
+  position: absolute;
+  color: #d1ad70;
+  font-size: 30px;
+}
+
+.frame-star {
+  top: -13px;
+  left: 15%;
+}
+
+.frame-sun {
+  top: -13px;
+  right: 15%;
+}
+
+.opening-title {
+  text-align: center;
+  margin-top: 22px;
+}
+
+.opening-title p {
+  color: #8c6a43;
+  font-size: 9px;
+  letter-spacing: 4px;
+}
+
+.opening-title h2 {
+  margin: 8px 0 17px;
+  color: #4a3029;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* STORY PAGES */
+
+.reading-page {
+  background: #b88e5d;
+  padding: 9px;
+  box-shadow: inset 0 0 18px #54331e;
+}
+
+.parchment {
+  min-height: 650px;
+  padding: 15px;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(255,255,255,.18), transparent 80%),
+    repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(91,58,25,.025) 5px),
+    #ead9b5;
+}
+
+.thorn-border {
+  min-height: 620px;
+  padding: 32px clamp(20px, 5vw, 55px);
+  border: 1px solid #a98a51;
+  outline: 1px solid rgba(169,138,81,.4);
+  outline-offset: -6px;
+  position: relative;
+}
+
+.thorn-border::before,
+.thorn-border::after {
+  content: "❧  ✦  ❧";
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: #a5874f;
+  text-align: center;
+  font-size: 19px;
+}
+
+.thorn-border::before {
+  top: 8px;
+}
+
+.thorn-border::after {
+  bottom: 8px;
+}
+
+.reading-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(137,101,54,.35);
+  color: #92713e;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+#page-title {
+  margin: 30px 0;
+  color: #572d30;
+  font-size: clamp(26px, 5vw, 37px);
+  font-weight: normal;
+  font-style: italic;
+  text-align: center;
+}
+
+#story-text {
+  font-size: clamp(17px, 2.5vw, 20px);
+  line-height: 1.9;
+  text-align: justify;
+}
+
+#story-text p {
+  margin: 0 0 20px;
+}
+
+#story-text p:first-child::first-letter {
+  float: left;
+  margin: 4px 9px 0 0;
+  padding: 3px 8px;
+  color: #a47b38;
+  font-size: 65px;
+  line-height: .8;
+  border: 1px solid #b99a61;
+  background: rgba(185,154,97,.1);
+}
+
+.reading-footer {
+  margin-top: 35px;
+  text-align: center;
+  color: #a48750;
+  letter-spacing: 8px;
+}
+
+/* NAVIGATION */
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.navigation button {
+  padding: 11px 17px;
+  color: #dfc28d;
+  background: #20121b;
+  border: 1px solid #8f7045;
+  font-size: 14px;
+}
+
+.navigation button:hover:not(:disabled) {
+  background: #5c1830;
+}
+
+.navigation button:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+/* SMALL SCREENS */
+
+@media (max-width: 650px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .velvet-book {
+    min-height: 590px;
+  }
+
+  .cover-inner {
+    min-height: 566px;
+    padding: 35px 15px;
+  }
+
+  .cover-emblem {
+    width: 130px;
+  }
+
+  .book-object {
+    padding: 5px;
+  }
+
+  .book-spread {
+    grid-template-columns: 1fr;
+  }
+
+  .left-page {
+    min-height: 360px;
+  }
+
+  .right-page {
+    min-height: 570px;
+  }
+
+  .shoe-art {
+    margin-top: 35px;
+    max-width: 200px;
+  }
+
+  .left-page-text {
+    margin-top: 30px;
+  }
+
+  .parchment {
+    padding: 7px;
+  }
+
+  .thorn-border {
+    min-height: 600px;
+    padding: 30px 22px;
+  }
+
+  .navigation {
+    flex-wrap: wrap;
+  }
+
+  .navigation button {
+    flex: 1;
+    min-width: 90px;
+    padding: 10px 5px;
+  }
+}
